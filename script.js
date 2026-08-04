@@ -45,6 +45,42 @@ window.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') closeMenu();
 });
 
+const lightbox = document.querySelector('.image-lightbox');
+const lightboxImage = lightbox.querySelector('img');
+const lightboxCaption = lightbox.querySelector('figcaption');
+const lightboxClose = lightbox.querySelector('.lightbox-close');
+let lastGalleryTrigger = null;
+
+function closeLightbox() {
+  if (!lightbox.classList.contains('open')) return;
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden', 'true');
+  body.classList.remove('lightbox-open');
+  lightboxImage.removeAttribute('src');
+  if (lastGalleryTrigger) lastGalleryTrigger.focus();
+}
+
+document.querySelectorAll('.gallery-trigger').forEach((trigger) => {
+  trigger.addEventListener('click', () => {
+    lastGalleryTrigger = trigger;
+    lightboxImage.src = trigger.dataset.image;
+    lightboxImage.alt = trigger.dataset.caption;
+    lightboxCaption.textContent = trigger.dataset.caption;
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    body.classList.add('lightbox-open');
+    lightboxClose.focus();
+  });
+});
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', (event) => {
+  if (event.target === lightbox) closeLightbox();
+});
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') closeLightbox();
+});
+
 function updateHeader() {
   header.classList.toggle('scrolled', window.scrollY > 24);
 }
