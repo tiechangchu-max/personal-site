@@ -1407,6 +1407,14 @@ html[data-theme="dark"] .name-mark {
   margin-top: 105px;
 }
 
+.video-grid-tertiary {
+  display: grid;
+  grid-template-columns: 1.08fr .9fr 1fr;
+  align-items: start;
+  gap: clamp(20px, 2.5vw, 34px);
+  margin-top: 105px;
+}
+
 .video-frame {
   position: relative;
   overflow: hidden;
@@ -1431,6 +1439,22 @@ html[data-theme="dark"] .name-mark {
 
 .video-card-cockpit .video-frame {
   aspect-ratio: 736 / 1232;
+}
+
+.video-card-stellar .video-frame {
+  aspect-ratio: 816 / 1104;
+}
+
+.video-card-yoga .video-frame {
+  aspect-ratio: 736 / 1216;
+}
+
+.video-card-square {
+  margin-top: 115px;
+}
+
+.video-card-square .video-frame {
+  aspect-ratio: 1;
 }
 
 .video-card-compact:nth-child(2) {
@@ -1846,6 +1870,8 @@ footer {
   .video-grid { gap: 30px; }
   .video-grid-secondary { grid-template-columns: repeat(2, 1fr); }
   .video-card-compact:nth-child(3) { grid-column: 1 / -1; justify-self: center; width: calc(50% - 15px); margin-top: 30px; }
+  .video-grid-tertiary { grid-template-columns: repeat(2, 1fr); }
+  .video-grid-tertiary .video-card-square { grid-column: 1 / -1; justify-self: center; width: calc(50% - 15px); margin-top: 30px; }
   .video-caption { align-items: flex-start; flex-direction: column; gap: 7px; }
   .video-caption > span { padding-bottom: 0; }
 
@@ -1904,6 +1930,8 @@ footer {
   .video-card-compact:nth-child(2),
   .video-card-compact:nth-child(3) { grid-column: auto; width: min(100%, 430px); margin-top: 0; }
   .video-card-compact:nth-child(even) { justify-self: end; }
+  .video-grid-tertiary { grid-template-columns: 1fr; gap: 65px; margin-top: 75px; }
+  .video-grid-tertiary .video-card-square { grid-column: auto; width: min(100%, 430px); margin-top: 0; }
   .video-footnote { grid-template-columns: 1fr; gap: 10px; margin-top: 65px; }
   .video-footnote p,
   .video-footnote b { text-align: left; }

@@ -76,8 +76,36 @@ if ('IntersectionObserver' in window) {
 
 document.getElementById('current-year').textContent = new Date().getFullYear();
 
-if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-  document.querySelectorAll('video[autoplay]').forEach((video) => video.pause());
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const lazyVideos = document.querySelectorAll('video[data-src]');
+
+function loadVideo(video) {
+  if (video.src) return;
+  video.src = video.dataset.src;
+  video.load();
+  if (reduceMotion) {
+    video.addEventListener('canplay', () => video.pause(), { once: true });
+  } else {
+    const playPromise = video.play();
+    if (playPromise) playPromise.catch(() => {});
+  }
+}
+
+if ('IntersectionObserver' in window) {
+  const videoObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          loadVideo(entry.target);
+          videoObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { rootMargin: '350px 0px' },
+  );
+  lazyVideos.forEach((video) => videoObserver.observe(video));
+} else {
+  lazyVideos.forEach(loadVideo);
 }
 
 const visual = document.querySelector('.hero-visual');
