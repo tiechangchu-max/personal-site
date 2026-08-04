@@ -76,6 +76,10 @@ if ('IntersectionObserver' in window) {
 
 document.getElementById('current-year').textContent = new Date().getFullYear();
 
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('video[autoplay]').forEach((video) => video.pause());
+}
+
 const visual = document.querySelector('.hero-visual');
 const profileCard = document.querySelector('.profile-card');
 
