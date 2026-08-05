@@ -144,6 +144,31 @@ if ('IntersectionObserver' in window) {
   lazyVideos.forEach(loadVideo);
 }
 
+const animatedImages = document.querySelectorAll('img[data-animated-src]');
+
+function loadAnimatedImage(img) {
+  if (img.dataset.animationLoaded) return;
+  img.src = img.dataset.animatedSrc;
+  img.dataset.animationLoaded = 'true';
+}
+
+if ('IntersectionObserver' in window) {
+  const animatedImageObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          loadAnimatedImage(entry.target);
+          animatedImageObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { rootMargin: '400px 0px' },
+  );
+  animatedImages.forEach((img) => animatedImageObserver.observe(img));
+} else {
+  animatedImages.forEach(loadAnimatedImage);
+}
+
 const visual = document.querySelector('.hero-visual');
 const profileCard = document.querySelector('.profile-card');
 
