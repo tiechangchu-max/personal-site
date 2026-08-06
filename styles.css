@@ -1482,6 +1482,11 @@ html[data-theme="dark"] .name-mark {
   aspect-ratio: 4 / 3;
 }
 
+.case-photo-portrait {
+  grid-column: span 3;
+  aspect-ratio: 2 / 3;
+}
+
 .case-photo-wide img {
   object-position: 50% 62%;
 }
@@ -2481,6 +2486,7 @@ footer {
   .case-photo { grid-column: span 1; aspect-ratio: 3 / 4; }
   .case-photo:nth-child(3),
   .case-photo-wide { grid-column: span 2; aspect-ratio: 4 / 3; }
+  .case-photo-portrait { grid-column: span 1; aspect-ratio: 2 / 3; }
   .case-footer { grid-template-columns: 1fr; gap: 9px; margin-top: 55px; }
   .case-footer p,
   .case-footer b { text-align: left; }
