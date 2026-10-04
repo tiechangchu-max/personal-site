@@ -1,0 +1,236 @@
+{
+  "title": "GALAKU · 训练器产品视觉",
+  "images": [
+    {
+      "id": "01",
+      "title": "主视觉",
+      "sourceName": "训练器详情_01.png",
+      "src": "assets/images/trainer/01.webp",
+      "original": "assets/images/trainer/originals/01.png",
+      "width": 941,
+      "height": 2077,
+      "sha256": "7df23da68d457ad08191cb3ce0a7c9d8da363077a7b3c2f63cf865091bf44057",
+      "group": "cover"
+    },
+    {
+      "id": "02",
+      "title": "场景形象",
+      "sourceName": "训练器详情_02.png",
+      "src": "assets/images/trainer/02.webp",
+      "original": "assets/images/trainer/originals/02.png",
+      "width": 941,
+      "height": 1721,
+      "sha256": "9f6f8bf0fc6a65cba2dcb58d2dda431a50ba44a79cb80669ff7a65839118ed5b",
+      "group": "features"
+    },
+    {
+      "id": "03",
+      "title": "功能总览",
+      "sourceName": "训练器详情_03.png",
+      "src": "assets/images/trainer/03.webp",
+      "original": "assets/images/trainer/originals/03.png",
+      "width": 941,
+      "height": 2663,
+      "sha256": "11f5ff885b21ec24ab91f7128891006597f3690f1b7512089a22987b5b8aff61",
+      "group": "features"
+    },
+    {
+      "id": "04",
+      "title": "双模式功能",
+      "sourceName": "训练器详情_04.png",
+      "src": "assets/images/trainer/04.webp",
+      "original": "assets/images/trainer/originals/04.png",
+      "width": 941,
+      "height": 2751,
+      "sha256": "5b67436190de80c7b34d3e78de7670151d284e4589fd05269c6cf94e3a618249",
+      "group": "features"
+    },
+    {
+      "id": "05",
+      "title": "功能节奏",
+      "sourceName": "训练器详情_05.png",
+      "src": "assets/images/trainer/05.webp",
+      "original": "assets/images/trainer/originals/05.png",
+      "width": 941,
+      "height": 2354,
+      "sha256": "d4ab82cd04ffa3d6da64e8170da5768ed5c9474179904bd644d97a9b082160ad",
+      "group": "features"
+    },
+    {
+      "id": "06",
+      "title": "应用场景",
+      "sourceName": "训练器详情_06.png",
+      "src": "assets/images/trainer/06.webp",
+      "original": "assets/images/trainer/originals/06.png",
+      "width": 941,
+      "height": 2323,
+      "sha256": "a68e83ac6ce56384c39d046a1e8ac1796d52a4dc60590ed1c04c40c045ed2322",
+      "group": "features"
+    },
+    {
+      "id": "07",
+      "title": "数据界面",
+      "sourceName": "训练器详情_07.png",
+      "src": "assets/images/trainer/07.webp",
+      "original": "assets/images/trainer/originals/07.png",
+      "width": 941,
+      "height": 900,
+      "sha256": "87c43d513c983352f2a4478d591778868d6603b66de9777ad2fc469c4b86cb43",
+      "group": "features"
+    },
+    {
+      "id": "08",
+      "title": "互动场景",
+      "sourceName": "训练器详情_08.png",
+      "src": "assets/images/trainer/08.webp",
+      "original": "assets/images/trainer/originals/08.png",
+      "width": 941,
+      "height": 2072,
+      "sha256": "d72f98ab064f8fa4d2204dc57376a08b29f0017c7649b8db571d9a0c048f98dd",
+      "group": "features"
+    },
+    {
+      "id": "09",
+      "title": "组合功能",
+      "sourceName": "训练器详情_09.png",
+      "src": "assets/images/trainer/09.webp",
+      "original": "assets/images/trainer/originals/09.png",
+      "width": 941,
+      "height": 1923,
+      "sha256": "8bf3230a1c0b4415b4aa95320328057d09842bed0c3da673893bbccb9d641893",
+      "group": "features"
+    },
+    {
+      "id": "10",
+      "title": "结构细节",
+      "sourceName": "训练器详情_10.png",
+      "src": "assets/images/trainer/10.webp",
+      "original": "assets/images/trainer/originals/10.png",
+      "width": 941,
+      "height": 1973,
+      "sha256": "1a514eebe5ad817b7135f4465f3e762ef8d3753d99c572bc00ae06f6f2b0c222",
+      "group": "features"
+    },
+    {
+      "id": "11",
+      "title": "声控场景",
+      "sourceName": "训练器详情02_01.png",
+      "src": "assets/images/trainer/11.webp",
+      "original": "assets/images/trainer/originals/11.png",
+      "width": 941,
+      "height": 2291,
+      "sha256": "0cdd356282b242fb97996bbbe19ec444362750d035892e2147fdca80a5661269",
+      "group": "scenes"
+    },
+    {
+      "id": "12",
+      "title": "内容展示",
+      "sourceName": "训练器详情02_02.png",
+      "src": "assets/images/trainer/12.webp",
+      "original": "assets/images/trainer/originals/12.png",
+      "width": 941,
+      "height": 1563,
+      "sha256": "3e9c1e225277859846146d7b6b634ea7c8cd300d4815f4aab54987bebe62e56d",
+      "group": "scenes"
+    },
+    {
+      "id": "13",
+      "title": "手机互动",
+      "sourceName": "训练器详情02_03.png",
+      "src": "assets/images/trainer/13.webp",
+      "original": "assets/images/trainer/originals/13.png",
+      "width": 941,
+      "height": 2590,
+      "sha256": "9f8ff5bf245e5ed53050eb85989fd38b3ab280aec8c9040a15b31b893f179f44",
+      "group": "scenes"
+    },
+    {
+      "id": "14",
+      "title": "场景叙事",
+      "sourceName": "训练器详情02_04.png",
+      "src": "assets/images/trainer/14.webp",
+      "original": "assets/images/trainer/originals/14.png",
+      "width": 941,
+      "height": 1837,
+      "sha256": "0012b4ba1b4479fc2426cc60003e9ec4268fda051f73765e24d645693527b5a9",
+      "group": "scenes"
+    },
+    {
+      "id": "15",
+      "title": "材质细节",
+      "sourceName": "训练器详情02_05.png",
+      "src": "assets/images/trainer/15.webp",
+      "original": "assets/images/trainer/originals/15.png",
+      "width": 941,
+      "height": 2006,
+      "sha256": "4db674ba490981b097285ab9ab4533ad97e08647e47c1dc8abb17ed530f9763f",
+      "group": "scenes"
+    },
+    {
+      "id": "16",
+      "title": "防水展示",
+      "sourceName": "训练器详情02_06.png",
+      "src": "assets/images/trainer/16.webp",
+      "original": "assets/images/trainer/originals/16.png",
+      "width": 941,
+      "height": 1856,
+      "sha256": "811594dbcb46eb882bcf1dee00c9100e3bc2be8c9c72068ebdf178ea6e770f82",
+      "group": "scenes"
+    },
+    {
+      "id": "17",
+      "title": "产品参数",
+      "sourceName": "训练器详情02_07.png",
+      "src": "assets/images/trainer/17.webp",
+      "original": "assets/images/trainer/originals/17.png",
+      "width": 941,
+      "height": 1867,
+      "sha256": "258580ce8e1e52ecc5304d1fb52ae42d491a8d76cdd903a2574e7dad41306459",
+      "group": "details"
+    },
+    {
+      "id": "18",
+      "title": "包装内容",
+      "sourceName": "训练器详情02_08.png",
+      "src": "assets/images/trainer/18.webp",
+      "original": "assets/images/trainer/originals/18.png",
+      "width": 941,
+      "height": 1643,
+      "sha256": "f754b7837d27230ce51cc96d305ee5c406fac5e021244b419b30bdd50843b2a4",
+      "group": "details"
+    },
+    {
+      "id": "19",
+      "title": "操作说明",
+      "sourceName": "训练器详情02_09.png",
+      "src": "assets/images/trainer/19.webp",
+      "original": "assets/images/trainer/originals/19.png",
+      "width": 941,
+      "height": 1840,
+      "sha256": "bd4cc4b3028f235493fffa4317058f7ba5e2ee4589c238adc6cfdb5224d321a0",
+      "group": "details"
+    },
+    {
+      "id": "20",
+      "title": "产品实拍 · 桌面",
+      "sourceName": "训练器详情02_10.png",
+      "src": "assets/images/trainer/20.webp",
+      "original": "assets/images/trainer/originals/20.png",
+      "width": 941,
+      "height": 1549,
+      "sha256": "2ec1c5809e7e15e043b28787f9ee03981c27d7e55beef03079c00dea47568002",
+      "group": "details"
+    },
+    {
+      "id": "21",
+      "title": "产品实拍 · 结构",
+      "sourceName": "训练器详情02_11.png",
+      "src": "assets/images/trainer/21.webp",
+      "original": "assets/images/trainer/originals/21.png",
+      "width": 941,
+      "height": 1290,
+      "sha256": "8d1b30dcb9b15e0263398098cac743267b8f29d506e17acf3082d57eb186b6ce",
+      "group": "details"
+    }
+  ]
+}

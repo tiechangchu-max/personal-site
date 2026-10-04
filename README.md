@@ -4,6 +4,12 @@
 
 上传操作与运行检查见 [UPLOAD-GUIDE.md](UPLOAD-GUIDE.md)。
 
+## 完整项目案例
+
+`trainer.html` 展示 GALAKU 训练器的一套 21 张产品视觉，按核心功能、互动场景与产品细节分章编排。电脑三列、平板两列、手机单列；图片可放大、连续翻页，并打开原图。首页作品区已加入案例入口。
+
+`data/trainer-case.json` 记录图片编号、章节、尺寸与原图校验值。网页预览采用 WebP 和响应式尺寸，PNG 原图保存在 `assets/images/trainer/originals/`。案例样式与浏览逻辑位于 `trainer.css` 和 `trainer.mjs`。
+
 ## 最快的定制方法
 
 打开 `index.html`，全局搜索并替换下面这些占位内容：
