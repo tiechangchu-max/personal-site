@@ -6,7 +6,9 @@
 
 ## 完整项目案例
 
-`trainer.html` 展示 GALAKU 训练器的一套 21 张产品视觉，按核心功能、互动场景与产品细节分章编排。电脑三列、平板两列、手机单列；图片可放大、连续翻页，并打开原图。首页作品区已加入案例入口。
+首页 `index.html#work` 直接展开 GALAKU 训练器的一套 21 张产品视觉：项目主视觉之后，按核心功能、互动场景与产品细节分章编排。电脑三列、平板两列、手机单列；向下滚动即可浏览全套，点击图片可放大。`trainer-home.css` 为首页案例提供样式。
+
+独立地址 `trainer.html` 仍可单独分享该案例，支持图片连续翻页和打开原图。
 
 `data/trainer-case.json` 记录图片编号、章节、尺寸与原图校验值。网页预览采用 WebP 和响应式尺寸，PNG 原图保存在 `assets/images/trainer/originals/`。案例样式与浏览逻辑位于 `trainer.css` 和 `trainer.mjs`。
 
