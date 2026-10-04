@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>已上传作品 · 个人作品集</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="portfolio.css?v=20261005-3" />
+    <script type="module" src="gallery.mjs?v=20261005-3"></script>
+    <script>
+      if (localStorage.getItem('personal-site-theme') === 'dark') document.documentElement.dataset.theme = 'dark';
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html">YOURS<i>.</i></a>
+      <a class="library-manage" href="index.html#work">返回作品集</a>
+    </header>
+    <main id="main">
+      <section class="work section" id="work" aria-labelledby="work-title">
+        <div class="shell">
+          <div class="section-heading heading-row">
+            <div><p>作品预览</p><h2 id="work-title">已上传作品</h2></div>
+            <a class="library-manage" href="admin.html">管理作品</a>
+          </div>
+          <div class="library-controls">
+            <div class="library-filters" role="group" aria-label="按作品类型筛选">
+              <button type="button" data-filter="all" aria-pressed="true">全部作品</button>
+              <button type="button" data-filter="image" aria-pressed="false">图片</button>
+              <button type="button" data-filter="video" aria-pressed="false">视频</button>
+              <button type="button" data-filter="prompt" aria-pressed="false">含提示词</button>
+            </div>
+            <label class="library-category">分类 <select id="work-category"><option value="all">全部分类</option></select></label>
+            <button type="button" id="library-refresh" class="library-manage">刷新作品</button>
+          </div>
+          <p id="library-status" class="library-status" role="status">正在加载作品…</p>
+          <div class="library-grid" id="library-grid"></div>
+          <button type="button" id="library-more" class="library-more" hidden>加载更多</button>
+          <button type="button" id="library-retry" class="library-more" hidden>重新加载</button>
+          <noscript><p>启用 JavaScript 后可筛选作品；下方仍可浏览原有图片和视频。</p></noscript>
+        </div>
+      </section>
+
+      <dialog class="work-dialog" id="work-detail" aria-labelledby="detail-title">
+        <button type="button" class="detail-close" aria-label="关闭作品详情">×</button>
+        <div id="detail-media" class="detail-media"></div>
+        <div class="detail-copy">
+          <p class="detail-category" id="detail-category"></p><h2 id="detail-title"></h2>
+          <p id="detail-description"></p>
+          <div class="prompt-heading"><h3>创作提示词</h3><button type="button" id="copy-prompt" hidden>复制提示词</button></div>
+          <pre id="detail-prompt"></pre><p id="copy-status" role="status"></p>
+        </div>
+      </dialog>
+
+    </main>
+  </body>
+</html>
