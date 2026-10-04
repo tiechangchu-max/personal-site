@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh-CN" data-uploader="local">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self'; img-src 'self' blob: data:; media-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'" />
+  <meta name="theme-color" content="#f3efe6" />
+  <title>免密上传 · 个人作品集</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%236545e8'/%3E%3Cpath d='M16 20h9l7 12 7-12h9L36 39v7h-8v-7z' fill='%23f4dd62'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="admin.css?v=20261004-2" />
+  <script type="module" src="admin.mjs?v=20261004-2"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="admin-header"><a class="brand" href="https://tiechangchu-max.github.io/personal-site/">YOURS<span>.</span></a><a class="back-link" href="https://tiechangchu-max.github.io/personal-site/#work">浏览作品集</a></header>
+  <main id="main" class="admin-shell">
+    <div class="page-heading"><p class="eyebrow">YOUR CREATIVE ARCHIVE</p><h1>给作品集，添一点新灵感。</h1><p>上传图片与视频，记录作品背后的想法。</p></div>
+    <section class="connect-panel" aria-labelledby="connect-title">
+      <div class="panel-title"><div><span class="step-number">01</span><h2 id="connect-title">这台电脑，直接上传。</h2></div><span id="connection-label" class="connection-label">正在连接</span></div>
+      <p>无需填写密钥，使用这台电脑已有的网站授权。</p>
+      <p id="connection-message" class="message" role="status"></p>
+      <button type="button" id="disconnect-button" class="secondary">重新连接</button>
+    </section>
+    <section class="upload-panel" aria-labelledby="upload-title">
+      <div class="panel-title"><div><span class="step-number">02</span><h2 id="upload-title">添加图片或视频</h2></div><span class="connection-label">最多 10 个 / 批</span></div>
+      <fieldset id="upload-fields">
+        <label class="dropzone" id="dropzone" for="media-files"><span class="upload-symbol" aria-hidden="true">＋</span><strong>选择文件，或拖到这里</strong><span>从这台电脑选择你的作品</span><span class="file-formats">JPG · PNG · WebP · GIF · AVIF · MP4 · WebM</span><input id="media-files" type="file" accept="image/jpeg,image/png,image/webp,image/gif,image/avif,video/mp4,video/webm,.jpg,.jpeg,.png,.webp,.gif,.avif,.mp4,.webm" multiple /></label>
+        <p class="help">单文件最多 50 MB，每批合计最多 100 MB。视频推荐使用 H.264 编码的 MP4，便于手机播放。</p>
+        <p id="file-message" class="message" role="status"></p>
+        <div id="upload-queue" class="upload-queue"></div>
+        <datalist id="category-options"><option value="产品视觉"></option><option value="人物创作"></option><option value="影像实验"></option><option value="Little Swan"></option><option value="兔然心动"></option></datalist>
+      </fieldset>
+      <div class="publish-bar"><div><strong id="queue-summary">还没有选择文件</strong><p>发布后，图片、视频和填写的提示词将对访客公开。</p></div><button type="button" id="publish-button" class="primary" disabled>上传并公开展示</button></div>
+      <div id="progress-panel" hidden><progress id="upload-progress" max="100" value="0" aria-label="发布进度"></progress><p id="progress-message" role="status"></p></div>
+      <div id="publish-result" class="publish-result" role="status" hidden></div>
+    </section>
+    <p class="admin-footer">这个管理入口在本机运行。发布成功后，访客在原网站浏览你的新作品。</p>
+    <noscript><p class="message error">请启用 JavaScript 后再使用上传功能。</p></noscript>
+  </main>
+</body>
+</html>

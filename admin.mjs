@@ -1,6 +1,9 @@
 import { GitHubMediaStore, fileInfo, validateBatch, MAX_BATCH_BYTES } from './media-store.mjs';
+import { LocalMediaStore } from './local-store.mjs';
 
-const store = new GitHubMediaStore();
+const localMode = document.documentElement.dataset.uploader === 'local';
+const store = localMode ? new LocalMediaStore() : new GitHubMediaStore();
+const publicSite = 'https://tiechangchu-max.github.io/personal-site/';
 const form = document.querySelector('#connect-form');
 const tokenInput = document.querySelector('#github-token');
 const connectionMessage = document.querySelector('#connection-message');
@@ -17,11 +20,12 @@ function sync() {
   document.querySelector('#queue-summary').textContent = items.length ? `${items.length} 个文件 · ${formatSize(items.reduce((sum, item) => sum + item.file.size, 0))}` : '还没有选择文件';
 }
 function disconnect() {
+  if (localMode) { connected = false; sync(); return; }
   store.disconnect(); connected = false; tokenInput.value = '';
   form.hidden = false; document.querySelector('#connected-state').hidden = true;
   document.querySelector('#connection-label').textContent = '尚未连接'; sync();
 }
-form.addEventListener('submit', async event => {
+form?.addEventListener('submit', async event => {
   event.preventDefault();
   const button = document.querySelector('#connect-button'); button.disabled = true; tokenInput.disabled = true;
   message(connectionMessage, '正在连接网站…');
@@ -39,7 +43,27 @@ form.addEventListener('submit', async event => {
   } catch (error) { disconnect(); message(connectionMessage, error.message || '连接失败，请重试。', true); }
   finally { button.disabled = false; tokenInput.disabled = false; sync(); }
 });
-document.querySelector('#disconnect-button').addEventListener('click', () => { disconnect(); message(connectionMessage, '已断开连接，访问密钥已清除。'); });
+async function connectLocal() {
+  const button = document.querySelector('#disconnect-button'); button.disabled = true;
+  document.querySelector('#connection-label').textContent = '正在连接';
+  message(connectionMessage, '正在连接你的网站…');
+  try {
+    const data = await store.connect(); connected = true;
+    document.querySelector('#connection-label').textContent = '已就绪 · 免密上传';
+    message(connectionMessage, `已连接，你的网站有 ${data.works.length} 件作品。直接选择文件即可上传。`);
+    const options = document.querySelector('#category-options');
+    const categories = new Set([...options.querySelectorAll('option')].map(option => option.value));
+    data.works.forEach(work => categories.add(work.category));
+    options.replaceChildren(...[...categories].map(category => new Option(category, category)));
+  } catch (error) {
+    connected = false; document.querySelector('#connection-label').textContent = '暂未连接';
+    message(connectionMessage, error.message || '连接失败，请重试。', true);
+  } finally { button.disabled = false; sync(); }
+}
+document.querySelector('#disconnect-button').addEventListener('click', () => {
+  if (localMode) connectLocal();
+  else { disconnect(); message(connectionMessage, '已断开连接，访问密钥已清除。'); }
+});
 
 function node(tag, className, text) { const result = document.createElement(tag); if (className) result.className = className; if (text) result.textContent = text; return result; }
 function field(item, key, label, max, multiline = false) {
@@ -110,7 +134,9 @@ publish.addEventListener('click', async () => {
   try {
     const saved = await store.publish(items, (value, text) => { document.querySelector('#upload-progress').value = value; document.querySelector('#progress-message').textContent = text; });
     result.replaceChildren(node('p', '', `${saved.count} 件作品已保存到网站仓库。`), node('p', '', '网站正在更新，通常需要几分钟。若暂时没看到新作品，请稍后刷新作品集。'));
-    const link = node('a', '', '查看作品集'); link.href = 'index.html#work'; link.target = '_blank'; link.rel = 'noopener'; result.append(link);
+    const firstWorkId = items[0].work.id;
+    const base = localMode ? publicSite : new URL('.', location.href).href;
+    const link = node('a', '', '查看刚上传的作品'); link.href = `${base}?work=${encodeURIComponent(firstWorkId)}&v=${encodeURIComponent(saved.sha)}#work`; link.target = '_blank'; link.rel = 'noopener'; result.append(link);
     const buildLink = node('a', '', '查看网站更新状态'); buildLink.href = 'https://github.com/tiechangchu-max/personal-site/actions'; buildLink.target = '_blank'; buildLink.rel = 'noopener noreferrer'; result.append(node('br'), buildLink);
     items.forEach(item => URL.revokeObjectURL(item.url)); items = []; renderQueue(); message(fileMessage, '');
     message(connectionMessage, '已连接，可以继续添加作品。');
@@ -124,4 +150,5 @@ publish.addEventListener('click', async () => {
 });
 window.addEventListener('beforeunload', event => { if (busy || items.length) { event.preventDefault(); event.returnValue = ''; } });
 window.addEventListener('pagehide', () => { store.disconnect(); });
-window.addEventListener('pageshow', event => { if (event.persisted) { disconnect(); message(connectionMessage, '页面已恢复，请重新连接网站。'); } });
+window.addEventListener('pageshow', event => { if (event.persisted) { if (localMode) connectLocal(); else { disconnect(); message(connectionMessage, '页面已恢复，请重新连接网站。'); } } });
+if (localMode) connectLocal();

@@ -15,8 +15,8 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
-    <script type="module" src="gallery.mjs"></script>
-    <link rel="stylesheet" href="portfolio.css" />
+    <script type="module" src="gallery.mjs?v=20261004-2"></script>
+    <link rel="stylesheet" href="portfolio.css?v=20261004-2" />
     <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
   </head>
   <body>
@@ -191,6 +191,7 @@
               <button type="button" data-filter="prompt" aria-pressed="false">含提示词</button>
             </div>
             <label class="library-category">分类 <select id="work-category"><option value="all">全部分类</option></select></label>
+            <button type="button" id="library-refresh" class="library-manage">刷新作品</button>
           </div>
           <p id="library-status" class="library-status" role="status">正在加载作品…</p>
           <div class="library-grid" id="library-grid"></div>

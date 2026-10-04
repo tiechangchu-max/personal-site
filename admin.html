@@ -9,14 +9,21 @@
   <meta name="theme-color" content="#f3efe6" />
   <title>管理作品 · 个人作品集</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%236545e8'/%3E%3Cpath d='M16 20h9l7 12 7-12h9L36 39v7h-8v-7z' fill='%23f4dd62'/%3E%3C/svg%3E" />
-  <link rel="stylesheet" href="admin.css" />
-  <script type="module" src="admin.mjs"></script>
+  <link rel="stylesheet" href="admin.css?v=20261004-2" />
+  <script type="module" src="admin.mjs?v=20261004-2"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">跳到主要内容</a>
   <header class="admin-header"><a class="brand" href="index.html">YOURS<span>.</span></a><a class="back-link" href="index.html#work">浏览作品集</a></header>
   <main id="main" class="admin-shell">
     <div class="page-heading"><p class="eyebrow">YOUR CREATIVE ARCHIVE</p><h1>给作品集，添一点新灵感。</h1><p>上传图片与视频，记录作品背后的想法。</p></div>
+    <section class="connect-panel local-entry" aria-labelledby="local-title">
+      <h2 id="local-title">在这台电脑上，免密上传。</h2>
+      <p>双击电脑里的「打开作品上传」启动文件，就可以直接选择图片和视频。</p>
+      <a class="primary local-start" href="http://127.0.0.1:8766/">打开本机上传</a>
+      <p class="help">已启动的话直接点击上方按钮。作品发布后仍在原网址展示。</p>
+    </section>
+    <details id="remote-mode"><summary>其他设备上传（需要 GitHub 授权）</summary>
     <section class="connect-panel" aria-labelledby="connect-title">
       <div class="panel-title"><div><span class="step-number">01</span><h2 id="connect-title">连接你的网站</h2></div><span id="connection-label" class="connection-label">尚未连接</span></div>
       <form id="connect-form">
@@ -41,6 +48,7 @@
       <div id="progress-panel" hidden><progress id="upload-progress" max="100" value="0" aria-label="发布进度"></progress><p id="progress-message" role="status"></p></div>
       <div id="publish-result" class="publish-result" role="status" hidden></div>
     </section>
+    </details>
     <p class="admin-footer">图片与视频会保存到你的网站仓库，换设备后仍然可以浏览。</p>
     <noscript><p class="message error">请启用 JavaScript 后再使用上传功能。</p></noscript>
   </main>

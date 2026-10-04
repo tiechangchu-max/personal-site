@@ -9,3 +9,4 @@ body.detail-open{overflow:hidden}.work-dialog{position:fixed;padding:0;border:1p
 @media(prefers-reduced-motion:reduce){.library-card{transition:none}.library-card:hover{transform:none}}
 #main{overflow-x:clip}
 @media(max-width:520px){#work-title{font-size:clamp(28px,7.8vw,40px)}}
+.library-new{position:absolute;top:12px;right:12px;border-radius:20px;padding:4px 12px;background:var(--yellow);color:#151515;font-size:12px;font-weight:700}.media-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--muted);background:var(--paper-deep)}.library-cover img{position:relative}.library-filters{margin-right:auto}#library-refresh:disabled{opacity:.5;cursor:wait}
