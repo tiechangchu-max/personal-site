@@ -65,7 +65,7 @@ function render() {
     if (work.prompt.trim()) caption.append(element('span', 'has-prompt', '含提示词'));
     button.append(cover, caption); button.addEventListener('click', () => openDetail(work)); grid.append(button);
   }
-  status.textContent = visible.length ? `${visible.length} 件作品 · 已显示 ${Math.min(limit, visible.length)} 件` : '这个分类下还没有作品。试试其他分类。';
+  status.textContent = visible.length ? '' : '这个分类下还没有作品。试试其他分类。';
   more.hidden = visible.length <= limit;
 }
 document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => {
