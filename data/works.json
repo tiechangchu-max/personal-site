@@ -2,17 +2,6 @@
   "version": 1,
   "works": [
     {
-      "id": "work-eb6a0220-67af-433e-9143-75f1825d97d5",
-      "title": "ChatGPT-Image-2026年9月9日-16_47_16",
-      "type": "image",
-      "src": "assets/uploads/work-eb6a0220-67af-433e-9143-75f1825d97d5.png",
-      "poster": "",
-      "category": "产品视觉",
-      "description": "",
-      "prompt": "",
-      "createdAt": "2026-10-04T12:11:19.277Z"
-    },
-    {
       "id": "swan-waterproof",
       "title": "Little Swan · 生活防水主视觉",
       "type": "image",
