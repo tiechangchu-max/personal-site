@@ -103,7 +103,7 @@
   .tc-nav a { white-space: nowrap; }
   .tc-nav a:first-child { display: none; }
   .tc-hero { grid-template-columns: 1fr; padding-top: 36px; padding-bottom: 40px; gap: 38px; }
-  .tc-hero h1 { font-size: 62px; margin-block: 20px; }
+  .tc-hero h1 { font-size: clamp(48px, 16vw, 62px); margin-block: 20px; }
   .tc-intro { max-width: 370px; }
   .tc-tags { margin-block: 20px 26px; }
   .tc-meta { gap: 36px; }
