@@ -15,6 +15,8 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <script src="script.js" defer></script>
+    <script type="module" src="gallery.mjs"></script>
+    <link rel="stylesheet" href="portfolio.css" />
     <noscript><style>.reveal { opacity: 1 !important; transform: none !important; }</style></noscript>
   </head>
   <body>
@@ -29,6 +31,7 @@
       <nav class="desktop-nav" aria-label="主导航">
         <a href="#about">关于</a>
         <a href="#work">作品</a>
+        <a href="#bunny">兔然心动</a>
         <a href="#visual">视觉</a>
         <a href="#video">影像</a>
         <a href="#journey">经历</a>
@@ -176,93 +179,37 @@
 
       <section class="work section" id="work" aria-labelledby="work-title">
         <div class="shell">
-          <div class="section-heading heading-row reveal">
-            <div>
-              <p><span>02</span> 精选作品</p>
-              <h2 id="work-title">一些最近做的事。</h2>
-            </div>
-            <p class="heading-aside">每个项目，都是一次从问题<br />走向答案的旅程。</p>
+          <div class="section-heading heading-row">
+            <div><p><span>02</span> 作品集</p><h2 id="work-title">把想象，留在这里。</h2></div>
+            <a class="library-manage" href="admin.html">管理作品</a>
           </div>
-
-          <div class="project-list">
-            <a class="project-card project-violet reveal" href="#contact" aria-label="查看 Loop 智能协作空间项目">
-              <div class="project-info">
-                <div class="project-number">01 / 03</div>
-                <div>
-                  <p>产品设计 · 2026</p>
-                  <h3>Loop 智能协作空间</h3>
-                  <span>让团队工作流，自然地流动起来。</span>
-                </div>
-                <b class="project-arrow">↗</b>
-              </div>
-              <div class="project-art art-dashboard" aria-hidden="true">
-                <div class="browser-shell">
-                  <div class="browser-bar"><i></i><i></i><i></i><span></span></div>
-                  <div class="dashboard-body">
-                    <aside><b>L.</b><i></i><i></i><i></i><i></i></aside>
-                    <div class="dashboard-main">
-                      <div class="dashboard-welcome"><small>Good morning,</small><strong>Ready to make progress?</strong></div>
-                      <div class="dashboard-columns">
-                        <div><small>TO DO</small><i></i><i></i><i></i></div>
-                        <div><small>IN PROGRESS</small><i></i><i></i></div>
-                        <div><small>DONE</small><i></i><i></i><i></i></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="art-pill pill-top">+ 28% 效率</div>
-                <div class="art-pill pill-bottom">TEAM FLOW ✦</div>
-              </div>
-            </a>
-
-            <div class="project-split">
-              <a class="project-card project-orange reveal" href="#contact" aria-label="查看 Oat 日常燕麦品牌项目">
-                <div class="project-info">
-                  <div class="project-number">02 / 03</div>
-                  <div>
-                    <p>品牌设计 · 2025</p>
-                    <h3>Oat 日常燕麦</h3>
-                    <span>一份轻盈、自然的早餐提案。</span>
-                  </div>
-                  <b class="project-arrow">↗</b>
-                </div>
-                <div class="project-art art-oat" aria-hidden="true">
-                  <div class="sun-shape"></div>
-                  <div class="oat-pack pack-one"><small>EVERYDAY</small><strong>oat.</strong><span>original</span></div>
-                  <div class="oat-pack pack-two"><small>EVERYDAY</small><strong>oat.</strong><span>berry</span></div>
-                  <span class="scribble">good morning!</span>
-                </div>
-              </a>
-
-              <a class="project-card project-mint reveal" href="#contact" aria-label="查看 Walk 城市漫游项目">
-                <div class="project-info">
-                  <div class="project-number">03 / 03</div>
-                  <div>
-                    <p>移动体验 · 2025</p>
-                    <h3>Walk 城市漫游</h3>
-                    <span>用脚步，重新认识熟悉的城市。</span>
-                  </div>
-                  <b class="project-arrow">↗</b>
-                </div>
-                <div class="project-art art-walk" aria-hidden="true">
-                  <div class="map-lines"></div>
-                  <div class="phone">
-                    <div class="phone-notch"></div>
-                    <small>TODAY'S WALK</small>
-                    <strong>沿河去散步</strong>
-                    <div class="mini-map"><i></i><b>2.8 km</b></div>
-                    <span>开始漫游 →</span>
-                  </div>
-                  <div class="map-pin pin-one">●</div>
-                  <div class="map-pin pin-two">●</div>
-                </div>
-              </a>
+          <div class="library-controls">
+            <div class="library-filters" role="group" aria-label="按作品类型筛选">
+              <button type="button" data-filter="all" aria-pressed="true">全部作品</button>
+              <button type="button" data-filter="image" aria-pressed="false">图片</button>
+              <button type="button" data-filter="video" aria-pressed="false">视频</button>
+              <button type="button" data-filter="prompt" aria-pressed="false">含提示词</button>
             </div>
+            <label class="library-category">分类 <select id="work-category"><option value="all">全部分类</option></select></label>
           </div>
-
-          <a class="all-work-link reveal" href="#contact"><span>想看更多作品？</span> 获取完整作品集 <b>↗</b></a>
+          <p id="library-status" class="library-status" role="status">正在加载作品…</p>
+          <div class="library-grid" id="library-grid"></div>
+          <button type="button" id="library-more" class="library-more" hidden>加载更多</button>
+          <button type="button" id="library-retry" class="library-more" hidden>重新加载</button>
+          <noscript><p>启用 JavaScript 后可筛选作品；下方仍可浏览原有图片和视频。</p></noscript>
         </div>
       </section>
+
+      <dialog class="work-dialog" id="work-detail" aria-labelledby="detail-title">
+        <button type="button" class="detail-close" aria-label="关闭作品详情">×</button>
+        <div id="detail-media" class="detail-media"></div>
+        <div class="detail-copy">
+          <p class="detail-category" id="detail-category"></p><h2 id="detail-title"></h2>
+          <p id="detail-description"></p>
+          <div class="prompt-heading"><h3>创作提示词</h3><button type="button" id="copy-prompt" hidden>复制提示词</button></div>
+          <pre id="detail-prompt"></pre><p id="copy-status" role="status"></p>
+        </div>
+      </dialog>
 
       <section class="visual-case section" id="visual" aria-labelledby="visual-title">
         <div class="shell">
@@ -738,6 +685,7 @@
 
     <footer>
       <div class="shell footer-inner">
+        <a class="footer-manage" href="admin.html">管理作品</a>
         <p>© <span id="current-year">2026</span> YOUR NAME. 保持热爱，保持创造。</p>
         <a href="#top">回到顶部 ↑</a>
       </div>

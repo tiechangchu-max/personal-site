@@ -1,6 +1,8 @@
 # 个人网站
 
-这是一个无需安装任何工具的静态个人网站。直接双击 `index.html` 即可预览。
+这是一个保留原有图片、视频案例的静态个人作品集，现支持分类筛选、作品详情、提示词与上传管理。通过静态服务器打开，例如 `python -m http.server 8765`，访问 `http://localhost:8765`。新版使用 ES modules 与 fetch，请不要直接双击 HTML。
+
+上传操作与运行检查见 [UPLOAD-GUIDE.md](UPLOAD-GUIDE.md)。
 
 ## 最快的定制方法
 

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://api.github.com; img-src 'self' blob: data:; media-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'" />
+  <meta name="theme-color" content="#f3efe6" />
+  <title>管理作品 · 个人作品集</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%236545e8'/%3E%3Cpath d='M16 20h9l7 12 7-12h9L36 39v7h-8v-7z' fill='%23f4dd62'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="admin.css" />
+  <script type="module" src="admin.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要内容</a>
+  <header class="admin-header"><a class="brand" href="index.html">YOURS<span>.</span></a><a class="back-link" href="index.html#work">浏览作品集</a></header>
+  <main id="main" class="admin-shell">
+    <div class="page-heading"><p class="eyebrow">YOUR CREATIVE ARCHIVE</p><h1>给作品集，添一点新灵感。</h1><p>上传图片与视频，记录作品背后的想法。</p></div>
+    <section class="connect-panel" aria-labelledby="connect-title">
+      <div class="panel-title"><div><span class="step-number">01</span><h2 id="connect-title">连接你的网站</h2></div><span id="connection-label" class="connection-label">尚未连接</span></div>
+      <form id="connect-form">
+        <label for="github-token">GitHub 访问密钥</label>
+        <div class="connect-row"><input id="github-token" type="password" autocomplete="off" spellcheck="false" placeholder="粘贴 personal-site 仓库的访问密钥" required /><button type="submit" id="connect-button" class="primary">连接网站</button></div>
+        <p class="help">密钥仅用于直接连接 GitHub，刷新或关闭页面后清除。</p>
+      </form>
+      <div id="connected-state" hidden><p>已连接 <strong>tiechangchu-max / personal-site</strong>，可以上传作品了。</p><button type="button" id="disconnect-button" class="secondary">断开连接</button></div>
+      <p id="connection-message" class="message" role="status"></p>
+      <details id="token-help"><summary>第一次使用？获取访问密钥</summary><ol><li>打开 <a href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener noreferrer">GitHub 密钥创建页</a>，登录你的网站所属账号。</li><li>选择 <strong>Only select repositories</strong>，只勾选 <strong>personal-site</strong>。</li><li>在 Repository permissions 中将 <strong>Contents</strong> 设为 <strong>Read and write</strong>，设置有效期并生成密钥。</li><li>把生成的密钥粘贴到上方，点击“连接网站”。</li></ol><p class="help">如果提示缺少作品目录，说明新版上传功能尚未发布到仓库。</p></details>
+    </section>
+    <section class="upload-panel" aria-labelledby="upload-title">
+      <div class="panel-title"><div><span class="step-number">02</span><h2 id="upload-title">添加图片或视频</h2></div><span class="connection-label">最多 10 个 / 批</span></div>
+      <fieldset id="upload-fields">
+        <label class="dropzone" id="dropzone" for="media-files"><span class="upload-symbol" aria-hidden="true">＋</span><strong>选择文件，或拖到这里</strong><span>手机上也可以从相册选择</span><span class="file-formats">JPG · PNG · WebP · GIF · AVIF · MP4 · WebM</span><input id="media-files" type="file" accept="image/jpeg,image/png,image/webp,image/gif,image/avif,video/mp4,video/webm,.jpg,.jpeg,.png,.webp,.gif,.avif,.mp4,.webm" multiple /></label>
+        <p class="help">单文件最多 50 MB，每批合计最多 100 MB。视频推荐使用 H.264 编码的 MP4，便于手机播放。</p>
+        <p id="file-message" class="message" role="status"></p>
+        <div id="upload-queue" class="upload-queue"></div>
+        <datalist id="category-options"><option value="产品视觉"></option><option value="人物创作"></option><option value="影像实验"></option><option value="Little Swan"></option><option value="兔然心动"></option></datalist>
+      </fieldset>
+      <div class="publish-bar"><div><strong id="queue-summary">还没有选择文件</strong><p>发布后，图片、视频和填写的提示词将对访客公开。</p></div><button type="button" id="publish-button" class="primary" disabled>上传并公开展示</button></div>
+      <div id="progress-panel" hidden><progress id="upload-progress" max="100" value="0" aria-label="发布进度"></progress><p id="progress-message" role="status"></p></div>
+      <div id="publish-result" class="publish-result" role="status" hidden></div>
+    </section>
+    <p class="admin-footer">图片与视频会保存到你的网站仓库，换设备后仍然可以浏览。</p>
+    <noscript><p class="message error">请启用 JavaScript 后再使用上传功能。</p></noscript>
+  </main>
+</body>
+</html>
